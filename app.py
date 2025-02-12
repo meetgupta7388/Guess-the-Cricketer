@@ -15,7 +15,13 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 def get_player_hints():
     prompt = """
-You are a cricket expert. First, randomly select one country from: Afghanistan, Australia, Bangladesh, England, India, Pakistan, New Zealand, Sri Lanka, South Africa, West Indies. Then, randomly select a well-known cricket player from that country who has played at least one match after 2010 (ensure this by mentioning a match or achievement after 2010 in the hints). Provide exactly 9 hints about the player, progressing from vague to very specific. Follow this exact format with no other text or explanations:
+You are a cricket expert. IMPORTANT: Do NOT select any previously used players or frequently chosen players like Virat Kohli. 
+
+First, use this specific randomization process:
+1. Roll a virtual 10-sided die to select a country (1=Afghanistan, 2=Australia, 3=Bangladesh, 4=England, 5=India, 6=Pakistan, 7=New Zealand, 8=Sri Lanka, 9=South Africa, 10=West Indies)
+2. From the selected country, choose the 3rd or 4th most popular player who has played after 2010
+
+Then, provide exactly 9 hints about the selected player, progressing from vague to very specific. Follow this exact format with no other text or explanations:
 
 [First hint: Primarily their role (batting all-rounder/bowling all-rounder/specialist batsman/specialist bowler) and which country they represent]
 [Second hint: Player's debut year and their batting and bowling hand]

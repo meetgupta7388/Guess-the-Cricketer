@@ -20,7 +20,7 @@ A web-based interactive game where users guess the name of a cricket player base
   - JavaScript (for interactive features)
   - Modern gradient and glassmorphism design elements
 # Project Structure
-
+```
 guess-the-country/
 ├── static/
 │   ├── style.css        # Main stylesheet
@@ -30,7 +30,7 @@ guess-the-country/
 ├── app.py              # Flask application
 ├── requirements.txt    # Project dependencies
 └── .env               # Environment variables (not in repo)
-
+```
 # Setup and Installation
 1. Clone the repository:
 ```bash

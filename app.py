@@ -31,15 +31,16 @@ Answer: [Player Name]
 
 Important rules to follow strictly:
 1. Player MUST have played at least one match after 2010
-2. Include recent achievements or matches from 2010 onwards
-3. For active players, mention recent performances
-4. For retired players, ensure their retirement was after 2010
-5. Be specific about IPL appearances after 2010
-6. Include recent ICC tournament appearances
-7. Stats should include matches played after 2010
-8. Format hints exactly as shown above with no variations
-9. No additional text before or after the hints
-10. Keep the answer format exactly as specified
+2. Player should not be repeated after one time
+3. Include recent achievements or matches from 2010 onwards
+4. For active players, mention recent performances
+5. For retired players, ensure their retirement was after 2010
+6. Be specific about IPL appearances after 2010
+7. Include recent ICC tournament appearances
+8. Stats should include matches played after 2010
+9. Format hints exactly as shown above with no variations
+10. No additional text before or after the hints
+11. Keep the answer format exactly as specified
 """
 
     try:

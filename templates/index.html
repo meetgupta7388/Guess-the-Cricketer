@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Cricket Player</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏏 <span>Guess the Cricket Player</span> 🏏</h1>
+        
+        <!-- Hint Section -->
+        <div id="hintSection" style="display: none;">
+            <div class="hint-card">
+                <p id="hints"></p>
+            </div>
+        </div>
+        
+        <!-- Game Controls (Initially Hidden) -->
+        <div id="gameControls" style="display: none;">
+            <div class="input-group">
+                <input type="text" 
+                       id="guessInput" 
+                       placeholder="Enter player name..." 
+                       autocomplete="off"
+                       onkeypress="if(event.key === 'Enter') checkGuess()">
+                <button onclick="checkGuess()">Submit Guess</button>
+            </div>
+        </div>
+        
+        <!-- Start Game Button -->
+        <button id="startBtn">Start New Game</button>
+        
+        <!-- Message Display -->
+        <div id="message"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

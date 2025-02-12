@@ -1,0 +1,217 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Game Container with 3D effect */
+.game-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-container:hover {
+    transform: translateY(-5px) rotateX(2deg);
+    box-shadow: 
+        0 15px 45px 0 rgba(31, 38, 135, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: titlePulse 2s ease-in-out infinite;
+    color: white;
+}
+
+h1 span {
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hint-card {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hint-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.hint-card:hover::before {
+    left: 100%;
+}
+
+#hints {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+    margin: 2rem 0;
+    justify-content: center;
+    animation: fadeIn 0.5s ease;
+}
+
+input {
+    width: 60%;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 
+        0 6px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+#startBtn {
+    background: linear-gradient(45deg, #FF8008, #FFC837);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+button[onclick="checkGuess()"] {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    animation: messageSlide 0.5s ease;
+}
+
+.correct {
+    background: rgba(0, 255, 0, 0.15);
+    color: #00ff87;
+    border: 1px solid rgba(0, 255, 135, 0.3);
+}
+
+.incorrect {
+    background: rgba(255, 0, 0, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        width: 95%;
+        padding: 2rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 85%;
+    }
+
+    button {
+        width: 85%;
+    }
+
+    #hints {
+        font-size: 1.1rem;
+    }
+}
